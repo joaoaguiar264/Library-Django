@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>My Books</title>
+{% endblock %}
+
+{% block main %}
+    <div class="background p-5">
+        <div class="d-flex flex-wrap mt-2" style="gap: 20px">
+            {% for book in books %}
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ book.image.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h6 class="card-title">{{ book.name }}</h6>
+                        <p class="card-text">Genre: {{ book.genre }} <br> {{ book.pages_number }} Pages <br> Stock: {{ book.quantity }}</p>
+                        <a href="{% url 'return_book' book.id %}" class="btn btn-danger" style="width: 100%;">Return Book</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
