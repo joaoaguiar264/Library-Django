@@ -29,9 +29,9 @@ class LoanedBooks(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Books, on_delete=models.CASCADE)
     returned = models.BooleanField(default=False)
-
+    
     def __str__(self):
-        return self.book
+        return self.book.name
     
     class Meta:
         verbose_name = 'LoanedBook'

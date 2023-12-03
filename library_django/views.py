@@ -79,4 +79,4 @@ def return_book(request, id):
     book.quantity += 1
     book.save()
     
-    return redirect('home') if len(loanedBooks) == 0 else redirect('loaned_books')
+    return redirect('loaned_books')

@@ -12,7 +12,7 @@
     <div class="d-flex mt-2 flex-wrap" style="gap: 20px">
         {% for book in books %}
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ book.image.url }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ book.image.url }}" style="max-height: 300px; object-fit: cover;" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{ book.name }}</h5>
                   <ul class="list-group list-group-flush">
@@ -20,7 +20,9 @@
                     <li class="list-group-item">{{ book.pages_number }} Pages</li>
                     <li class="list-group-item">{{ book.quantity }} Un.</li>
                     </ul>
+                    {% if book.in_stock %}
                     <a href="{% url 'lend_book' book.id  %}" class="btn btn-primary mt-4" style="width: 100%;">Lend Book</a>
+                    {% endif %}
                 </div>
                 
             </div>

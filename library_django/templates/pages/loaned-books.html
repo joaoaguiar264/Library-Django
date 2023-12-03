@@ -7,6 +7,7 @@
 {% block main %}
     <div class="background p-5">
         <div class="d-flex flex-wrap mt-2" style="gap: 20px">
+                
             {% for book in books %}
                 <div class="card" style="width: 18rem;">
                     <img src="{{ book.image.url }}" class="card-img-top" alt="...">
@@ -16,7 +17,10 @@
                         <a href="{% url 'return_book' book.id %}" class="btn btn-danger" style="width: 100%;">Return Book</a>
                     </div>
                 </div>
+            {% empty %}
+                <h1 class="text-white ">You don't have any loaned books.</h1>
             {% endfor %}
+            
         </div>
     </div>
 {% endblock %}
